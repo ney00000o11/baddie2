@@ -57,7 +57,7 @@ export const MainContent = ({ isVisible }: MainContentProps) => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-30 flex items-center justify-center animate-fade-in">
+    <div className="fixed inset-0 z-30 flex items-center justify-center animate-fade-in bg-black/20 backdrop-blur-sm">
       <div className="text-center space-y-12">
         <div className="space-y-6">
           <h1 className="text-7xl font-bold text-white mb-4 tracking-wider animate-scale-in split-text">

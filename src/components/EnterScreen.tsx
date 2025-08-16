@@ -8,7 +8,7 @@ export const EnterScreen = ({ onEnter }: EnterScreenProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center backdrop-blur-md">
+    <div className="fixed inset-0 z-40 flex items-center justify-center backdrop-blur-sm bg-black/30">
       <div className="text-center space-y-8 animate-fade-in">
         <div className="space-y-4">
           <h1 className="text-6xl font-bold text-white mb-2 tracking-wider">

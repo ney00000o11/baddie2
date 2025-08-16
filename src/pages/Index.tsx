@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { TitleBar } from '@/components/TitleBar';
-import { ParticleBackground } from '@/components/ParticleBackground';
 import { VideoBackground } from '@/components/VideoBackground';
 import { EnterScreen } from '@/components/EnterScreen';
 import { MainContent } from '@/components/MainContent';
-import { CursorFollower } from '@/components/CursorFollower';
+import DotParticleCanvas from '@/components/DotParticleCanvas';
 
 const Index = () => {
   const [hasEntered, setHasEntered] = useState(false);
@@ -34,12 +33,15 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 relative overflow-hidden">
       <TitleBar />
-      <ParticleBackground />
       <VideoBackground 
         isPlaying={hasEntered} 
         onLoadComplete={() => setVideoLoaded(true)}
       />
-      <CursorFollower />
+      <DotParticleCanvas 
+        backgroundColor="transparent"
+        particleColor="255, 255, 255"
+        animationSpeed={0.008}
+      />
       
       {!hasEntered && <EnterScreen onEnter={handleEnter} />}
       <MainContent isVisible={hasEntered} />
