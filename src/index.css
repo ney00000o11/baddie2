@@ -105,7 +105,7 @@
   }
 
   body {
-    @apply bg-background text-foreground overflow-hidden;
+    @apply bg-background text-foreground overflow-hidden cursor-none;
   }
 }
 
@@ -115,16 +115,24 @@
   }
   
   .glow-button {
-    @apply relative bg-secondary/80 backdrop-blur-sm border border-border/50 rounded-full px-8 py-3 text-foreground transition-all duration-300 hover:bg-primary/10 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/20 hover:scale-105;
+    @apply relative bg-secondary/80 backdrop-blur-sm border border-border/50 rounded-full px-8 py-3 text-foreground transition-all duration-300 hover:bg-primary/10 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/20 hover:scale-105 cursor-none;
   }
   
   .enter-button {
-    @apply relative bg-secondary/60 backdrop-blur-md border border-border/30 rounded-full px-12 py-4 text-xl text-foreground transition-all duration-500 hover:bg-primary/20 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/30 hover:scale-110 active:scale-95;
+    @apply relative bg-secondary/60 backdrop-blur-md border border-border/30 rounded-full px-12 py-4 text-xl text-foreground transition-all duration-500 hover:bg-primary/20 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/30 hover:scale-110 active:scale-95 cursor-none;
   }
   
   .particle {
     @apply absolute rounded-full opacity-60 animate-pulse;
     background: hsl(var(--particle));
+  }
+  
+  .cursor-trail {
+    @apply fixed pointer-events-none z-50 w-4 h-4 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 opacity-70 transition-all duration-300;
+  }
+  
+  .cursor-glow {
+    @apply fixed pointer-events-none z-40 w-8 h-8 rounded-full border-2 border-white/30 transition-all duration-200;
   }
 }
 
@@ -136,4 +144,14 @@
 @keyframes glow {
   0%, 100% { box-shadow: 0 0 20px hsl(var(--glow)); }
   50% { box-shadow: 0 0 40px hsl(var(--glow)), 0 0 60px hsl(var(--glow)); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes cursor-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
 }

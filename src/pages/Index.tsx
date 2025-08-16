@@ -4,6 +4,7 @@ import { ParticleBackground } from '@/components/ParticleBackground';
 import { VideoBackground } from '@/components/VideoBackground';
 import { EnterScreen } from '@/components/EnterScreen';
 import { MainContent } from '@/components/MainContent';
+import { CursorFollower } from '@/components/CursorFollower';
 
 const Index = () => {
   const [hasEntered, setHasEntered] = useState(false);
@@ -38,6 +39,7 @@ const Index = () => {
         isPlaying={hasEntered} 
         onLoadComplete={() => setVideoLoaded(true)}
       />
+      <CursorFollower />
       
       {!hasEntered && <EnterScreen onEnter={handleEnter} />}
       <MainContent isVisible={hasEntered} />
